@@ -21,11 +21,13 @@ const totalSlides = slidesArray.length;
 function updateSlidePosition() {
   // Using the .forEach array method, (array.forEach((element) => { per-element work goes here }))
   // loop through all the slides in your slideArray
-  // and remove the 'visible' class from each classList
-  // then add a class 'hidden' to all of them
-
+  slidesArray.forEach((element) => {
+    element.slidesArray.remove('visible');  // and remove the 'visible' class from each classList
+    element.slidesArray.add('hidden');  // then add a class 'hidden' to all of them
+  })
   // outside your .forEach,
   // add a 'visible' class to the slide at the current slidePosition in slides
+  slidesArray[slidePosition].add('visible')
 }
 
 function moveToNextSlide() {
