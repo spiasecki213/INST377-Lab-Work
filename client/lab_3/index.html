@@ -1,53 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sam's Labs</title>
-  <link rel="stylesheet" href="style.css"/>
-</head>
-
-<body>
-<div class="wrapper">
-  <div class="header">
-    <h1>Sam's Labs For INST377</h1>
-  </div>
-
-  <div class="container">
-    <div class="left_section box">
-      <h2>Album Names</h2>
-      <ol class="box">
-        <li>Weezer - Weezer</li>
-        <li>Tyler The Creator - IGOR</li>
-        <li>Faye Webster - I Know I'm Funny haha</li>
-        <li>Oliver Tree - Cowboy Tears</li>
-        <li>Patsy Cline - Patsy Cline's Greatest Hits</li>
-      </ol>
-    </div>
-    
-    <div class="right_section box">
-      <h2>Image Carousel</h2>
-      <div class="grid">
-        <img src='images/chairdog.jpg' alt="chair dog jpg"/>
-        <img src='images/couchdog.jpg' alt="couch dog jpg"/>
-        <img src='images/lapdog.jpg' alt="lap dog jpg"/>
-        <img src='images/pillowdog.jpg' alt="pillow dog jpg"/>
-      </div>
-      <div class="box">
-        <p>Four images of a mochi character, each with a different file format. Top row: gif, jpg; Bottom row: png, svg.</p>
-      </div>
-    </div>
-  </div>
-<div class="footer">
-    <p class="subtitle">spiasecki213 <a href='https://github.com/spiasecki213'>My Github Account</a></p>
-</div>
-</div>
-</body>
-<script src="script.js" ></script>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Sam's Labs</title>
+        <link rel="stylesheet" href="style.css"/>
+    </head>
+    <body>
+        <div class="wrapper">
+            <!-- wrapper-->
+            <div class="header"><h1>Sam's Labs For INST377</h1></div>
+            <div class="container">
+                <!-- container -->
+                <div class="left_section box">
+                    <!-- left inputs -->
+                    <h2>Album Names</h2>
+                    <ol class="box">
+                        <li>Weezer - Weezer</li>
+                        <li>Tyler The Creator - IGOR</li>
+                        <li>Faye Webster - I Know I'm Funny haha</li>
+                        <li>Oliver Tree - Cowboy Tears</li>
+                        <li>Patsy Cline - Patsy Cline's Greatest Hits</li>
+                    </ol>
+                </div>
+                <div class="right_section box">
+                    <!-- right side -->
+                    <h2>Image Carousel</h2>
+                    <div class="carousel">
+                      <button class="prev">prev</button>
+                      <div class="slides">
+                        <!-- images box -->
+                        <div class="carousel_item visible"><img id="slide_1" src='images/chairdog.jpg' alt="chair dog jpg"/></div>
+                        <div class="carousel_item hidden"><img id="slide_2" src='images/couchdog.jpg' alt="couch dog jpg"/></div>
+                        <div class="carousel_item hidden"><img id="slide_3" src='images/lapdog.jpg' alt="lap dog jpg"/></div>
+                        <div class="carousel_item hidden"><img id="slide_4" src='images/pillowdog.jpg' alt="pillow dog jpg"/></div>
+                      </div>
+                      <button class="next">next</button>
+                    </div>
+                    <div class="box">
+                        <!-- description box -->
+                        Four images of a mochi character, each with a different file format. Top row: gif, jpg; Bottom row: png, svg.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="footer">
+            spiasecki213 <a href='https://github.com/spiasecki213'>My Github Account</a>
+        </footer>
+    </body>
 </html>
-<!--
-    Replace this with your working code from Lab 2, and include:
-    - The styles in this folder's `style.css`
-    - The script in script.js, which should be included via a `<script src="script.js" >` call before your closing </body> tag 
--->
