@@ -239,7 +239,8 @@ div.carousel {
     - now make sure that images are _always_ square
     - ... there's a reason crop tools are popular in image editors
    */
-  width: 150px; 
+  height: 20px;
+  width: 20px; 
 }
 
 .prev,
@@ -259,9 +260,11 @@ div.carousel {
 .next:focus {
   margin: 0;
   /* Pick a good border colour and check out how it works with your buttons */
+  border: 2px solid fuchsia;
 }
 
 .prev:hover,
 .next:hover {
   /* Pick a good background colour for your hover pseudoclass */
+  background-color: aqua;
 }
