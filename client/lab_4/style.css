@@ -148,7 +148,6 @@ form {
   flex: 1 2 auto;
   margin: 1rem;
   align-items: center;
-  max-width: 450px;
   display: flex;
   flex-direction: column;
   border: 4px dotted;
@@ -164,13 +163,16 @@ form {
 .footer {
   flex-shrink: 0;
   padding: 1rem;
-  background-color: rgba(0, 139, 139, 0.8);
+  background-color: #380024;
+  color: #FFFFFF;
+  border: 4px dotted;
+  border-color:#993b58;
   font-size: 1.2rem;
   font-weight: 600;
 }
 
 .footer a {
-  color: rgba(255, 224, 138, 1);
+  color: #b8486b;
   text-decoration: underline;
 }
 
@@ -183,7 +185,7 @@ form {
   /* Hue, saturation, luminosity, alpha */
   background-color: hsla(0, 0%, 90%, 0.15);
   /* red, green, blue, alpha */
-  color: rgb(246, 169, 93);
+  color: #f6a1bc;
   text-decoration: none;
 }
 
