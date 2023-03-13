@@ -245,19 +245,10 @@ div.carousel {
 }
 
 .carousel_item img {
-  /* 
-    Setting width, rather than max-width or min-width,
-    means annoying pop-ins won't happen
-    but it also means you need to format your images to be compatible
-    or they will stretch weird
-    - try a tall one and see what happens
-    - change the height on a fixed image size and see what happens
-    - now make sure that images are _always_ square
-    - ... there's a reason crop tools are popular in image editors
-   */
   width: 150px; 
 }
 
+/* Buttons */
 .prev,
 .next {
   border: none;
@@ -280,6 +271,12 @@ div.carousel {
 .prev:hover,
 .next:hover {
   background-color: darkseagreen;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 /*
@@ -309,14 +306,6 @@ form label {
   display: block; /* this turns the label text into a box we can set margins on */
   margin-bottom: 0.5rem;
 }
-
-.buttons {
-  display: flex;
-  width: 100%;
-  height:fit-content;
-  white-space: nowrap;
-}
-
 
 /* How To Write A Media Query For Small Screens */
 @media only screen and (max-width: 736px){
