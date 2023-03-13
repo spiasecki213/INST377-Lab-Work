@@ -51,7 +51,6 @@ async function mainEvent() { // the async keyword means we can make API requests
     // This changes the response from the GET into data we can use - an "object"
     currentList = await results.json();
     console.table(currentList); 
-    injectHTML(currentList);
   });
 
 
@@ -75,6 +74,7 @@ async function mainEvent() { // the async keyword means we can make API requests
   generateListButton.addEventListener('click', (event) => {
     console.log('generate new list');
     const restaurantList = cutRestaurantList(currentList);
+    console.log(restaurantList);
     injectHTML(restaurantList);
   });
 }
