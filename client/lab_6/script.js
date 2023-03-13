@@ -1,3 +1,20 @@
+
+function getRandomIntInclusive(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1) + min); // The maximum is inclusive and the minimum is inclusive
+}
+
+function injectHTML (list) {
+  console.log('fired injectHTML');
+  const target = document.querySelector('#restaurant_list'); // selects text in restaurant_list
+  target.innerHTML = ''; // make sure restaurant_list is blank
+  list.forEach((item) => {
+    const str = `<li>${item.name}</li>`;
+    target.innerHTML += str;
+  })
+}
+
 /* A quick filter that will return something based on a matching input */
 function filterList(list, query) {
   return list.filter((item) => {
@@ -9,43 +26,41 @@ function filterList(list, query) {
 
 async function mainEvent() { // the async keyword means we can make API requests
   const mainForm = document.querySelector('.main_form'); // This class name needs to be set on your form before you can listen for an event on it
-  const filterButton = document.querySelector('.filter_button'); // querySelector that targets your filter button here
-
+  const filterDataButton = document.querySelector('.filter_button'); // querySelector that targets your filter button here
   let currentList = []; // this is "scoped" to the main event function
   
   /* We need to listen to an "event" to have something happen in our page - here we're listening for a "submit" */
   mainForm.addEventListener('submit', async (submitEvent) => { // async has to be declared on every function that needs to "await" something
-   
-    // This prevents your page from becoming a list of 1000 records from the county, even if your form still has an action set on it
-    submitEvent.preventDefault(); 
-    
-    // this is substituting for a "breakpoint" - it prints to the browser to tell us we successfully submitted the form
-    console.log('form submission'); 
+    submitEvent.preventDefault(); // This prevents your page from becoming a list of 1000 records from the county, even if your form still has an action set on it
+    console.log('form submission'); // this is substituting for a "breakpoint" - it prints to the browser to tell us we successfully submitted the form
 
     // Basic GET request - this replaces the form Action
     const results = await fetch('https://data.princegeorgescountymd.gov/resource/umjn-t2iz.json');
 
     // This changes the response from the GET into data we can use - an "object"
     currentList = await results.json();
-
-    /*
-      This array initially contains all 1,000 records from your request,
-      but it will only be defined _after_ the request resolves - any filtering on it before that
-      simply won't work.
-    */
     console.table(currentList); 
+    injectHTML(currentList);
   });
 
-  filterButton.addEventListener('click', (event) => {
-    console.log("clicked FilterButton");
 
+  // Filtering a list requires a second function, which operates on the same data set
+  // The event listener is ALWAYS on, but can only do anything once it has a data set.
+
+  // This event listener is on the button
+  filterDataButton.addEventListener('click', (event) => {
+    console.log("clicked filterDataButton"); // log out clicks for easier debugging
+    
     const formData = new FormData(mainForm);
     const formProps = Object.fromEntries(formData);
 
     console.log(formProps);
-    const newList = filterList(currentList, formProps.resto);
 
+    // Using the filterList function, filter the list
+    const newList = filterList(currentList, formProps.resto);
+    // and log out th new list
     console.log(newList);
+    injectHTML(newList);
   });
 }
 
