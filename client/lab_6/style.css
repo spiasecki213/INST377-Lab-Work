@@ -310,10 +310,11 @@ form label {
   margin-bottom: 0.5rem;
 }
 
-button {
-  width: fit-content;
+.buttons {
+  display: flex;
+  width: 100%;
   height:fit-content;
-  flex: 0 0 auto;
+  white-space: nowrap;
 }
 
 
