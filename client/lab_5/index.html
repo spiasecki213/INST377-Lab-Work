@@ -1,4 +1,3 @@
-<!-- Bring in your successful HTML/CSS from the Flexbox lab -->
 <!-- Your page will need a form in it, but that form will not need an action
     You will need to add the attribute "name" to your input
     with a value of 'resto'
@@ -7,3 +6,50 @@
     you will need a "filter" button with a type of "button" and a
     "load data" button with a type of "submit" on it
 -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sam's INST377 Labs</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header"><h1>Sam's Labs for INST377</h1></header>
+      <!-- wrapper -->
+      <div class="container">
+        <!-- container -->
+        <div class="left_section box">
+          <!-- left inputs -->
+          <h3>Form Inputs</h3>
+          <form
+            action="https://data.princegeorgescountymd.gov/resource/umjn-t2iz.json"
+            class="box"
+          >
+            <div>
+              <label for="resto">Restaurant Name</label>
+              <input type="text" id="resto" />
+            </div>
+            <button type="submit">Load Data</button>
+            <button type="filter">Filter Data</button>
+          </form>
+        </div>
+        <div class="right_section box">
+          <!-- right side -->
+          <h2>Local Restaurant List</h2>
+
+          <div class="box" id="restaurant_list">
+            <!-- description box -->
+            A list of local restaurants from an API
+          </div>
+        </div>
+      </div>
+      <footer class="footer">
+        spiasecki213
+        <a href="https://github.com/spiasecki213">My Github Account</a>
+      </footer>
+    </div>
+  </body>
+</html>
