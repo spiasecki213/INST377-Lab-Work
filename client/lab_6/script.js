@@ -12,7 +12,7 @@ function injectHTML (list) {
   list.forEach((item) => {
     const str = `<li>${item.name}</li>`;
     target.innerHTML += str;
-  })
+  });
 }
 
 /* A quick filter that will return something based on a matching input */
@@ -24,9 +24,20 @@ function filterList(list, query) {
   });
 }
 
+function cutRestaurantList(list) {
+  console.log('fired cut list');
+  const range = [...Array(15).keys]; // makes an array of 15 elements
+  return newArray = range.map((item, index) => {
+    const index = getRandomIntInclusive(0, list.length-1);
+    return list[index];
+  });
+}
+
 async function mainEvent() { // the async keyword means we can make API requests
   const mainForm = document.querySelector('.main_form'); // This class name needs to be set on your form before you can listen for an event on it
-  const filterDataButton = document.querySelector('.filter_button'); // querySelector that targets your filter button here
+  const filterDataButton = document.querySelector('#filter'); // querySelector that targets your Filter Data button here
+  const loadDataButton = document.querySelector('#data_load'); // querySelector that targets your Load County Data button here
+  const generateListButton = document.querySelector('#generate'); // querySelector that targets your Generate List button here
   let currentList = []; // this is "scoped" to the main event function
   
   /* We need to listen to an "event" to have something happen in our page - here we're listening for a "submit" */
@@ -44,10 +55,7 @@ async function mainEvent() { // the async keyword means we can make API requests
   });
 
 
-  // Filtering a list requires a second function, which operates on the same data set
-  // The event listener is ALWAYS on, but can only do anything once it has a data set.
-
-  // This event listener is on the button
+  // FILTER BUTTON
   filterDataButton.addEventListener('click', (event) => {
     console.log("clicked filterDataButton"); // log out clicks for easier debugging
     
@@ -62,7 +70,16 @@ async function mainEvent() { // the async keyword means we can make API requests
     console.log(newList);
     injectHTML(newList);
   });
+
+  // GENERATE LIST BUTTON
+  generateListButton.addEventListener('click', (event) => {
+    console.log('generate new list');
+    const restaurantList = cutRestaurantList(currentList);
+    console.log(restaurantList);
+    injectHTML(restaurantList);
+  });
 }
+
 
 /*
   This adds an event listener that fires our main event only once our page elements have loaded
