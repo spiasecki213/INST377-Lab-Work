@@ -26,8 +26,8 @@ function filterList(list, query) {
 
 function cutRestaurantList(list) {
   console.log('fired cut list');
-  const range = [...Array(15).keys]; // makes an array of 15 elements
-  return newArray = range.map((item, index) => {
+  const range = [...Array(15).keys()]; // makes an array of 15 elements
+  return newArray = range.map((item) => {
     const index = getRandomIntInclusive(0, list.length-1);
     return list[index];
   });
@@ -41,7 +41,7 @@ async function mainEvent() { // the async keyword means we can make API requests
   let currentList = []; // this is "scoped" to the main event function
   
   /* We need to listen to an "event" to have something happen in our page - here we're listening for a "submit" */
-  mainForm.addEventListener('submit', async (submitEvent) => { // async has to be declared on every function that needs to "await" something
+  loadDataButton.addEventListener('click', async (submitEvent) => { // async has to be declared on every function that needs to "await" something
     submitEvent.preventDefault(); // This prevents your page from becoming a list of 1000 records from the county, even if your form still has an action set on it
     console.log('form submission'); // this is substituting for a "breakpoint" - it prints to the browser to tell us we successfully submitted the form
 
@@ -75,7 +75,6 @@ async function mainEvent() { // the async keyword means we can make API requests
   generateListButton.addEventListener('click', (event) => {
     console.log('generate new list');
     const restaurantList = cutRestaurantList(currentList);
-    console.log(restaurantList);
     injectHTML(restaurantList);
   });
 }
