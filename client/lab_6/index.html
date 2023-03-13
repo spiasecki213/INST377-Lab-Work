@@ -25,15 +25,16 @@
         <div class="left_section box">
           <!-- left inputs -->
           <h3>Form Inputs</h3>
-          <form
-            action="https://data.princegeorgescountymd.gov/resource/umjn-t2iz.json"
-            class="box main_form">
+          <form class="box main_form">
+            <button type="button" id="data_load">Load County Data</button>
             <div>
               <label for="resto">Restaurant Name</label>
-              <input type="text" id="resto" name="resto"/>
+              <input type="text" id="resto" name="resto" />
             </div>
-            <button type="submit">Load Data</button>
-            <button type="button" class="filter_button">Filter Data</button>
+            <div class="buttons">
+              <button type="button" class="filter_button">Filter Data</button>
+              <button type="button" class="generate">Generate List</button>
+            </div>
           </form>
         </div>
         <div class="right_section box">
