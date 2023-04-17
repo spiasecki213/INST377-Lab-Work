@@ -43,10 +43,10 @@ async function mainEvent() {
   loadAnimation.style.display = "none";
   generateListButton.classList.add("hidden");
 
-  const storedData = localStorage.getItem("storedData");
+  const storedData = localStorage.getItem('storedData');
   const parsedData = JSON.parse(storedData);
   if (parsedData.length > 0) {
-    generateListButton.classList.remove("hidden");
+    generateListButton.classList.remove('hidden');
   }
 
   let currentList = []; // this is "scoped" to the main event function
@@ -64,7 +64,7 @@ async function mainEvent() {
 
     // This changes the response from the GET into data we can use - an "object"
     const storedList = await results.json();
-    localStorage.setItem("storedData", JSON.stringify(storedList));
+    localStorage.setItem('storedData', JSON.stringify(storedList));
 
     loadAnimation.style.display = "none";
     // console.table(storedList);
