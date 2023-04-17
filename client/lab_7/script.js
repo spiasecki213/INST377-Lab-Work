@@ -45,12 +45,12 @@ async function mainEvent() {
   generateListButton.classList.add("hidden");
 
   let storedList = [];
-  let currentList = []; // this is 'scoped' to the main event function
+  let currentList = []; // this is "scoped" to the main event function
 
   /* LOAD DATA BUTTON */
   loadDataButton.addEventListener("click", async (submitEvent) => {
-    // async has to be declared on every function that needs to 'await' something
-    console.log("Loading Data"); // this is substituting for a 'breakpoint' - it prints to the browser to tell us we successfully submitted the form
+    // async has to be declared on every function that needs to "await" something
+    console.log("Loading Data"); // this is substituting for a "breakpoint" - it prints to the browser to tell us we successfully submitted the form
     loadAnimation.style.display = "inline-block";
 
     // Basic GET request - this replaces the form Action
@@ -58,7 +58,7 @@ async function mainEvent() {
       "https://data.princegeorgescountymd.gov/resource/umjn-t2iz.json"
     );
 
-    // This changes the response from the GET into data we can use - an 'object'
+    // This changes the response from the GET into data we can use - an "object"
     storedList = await results.json();
     if (storedList.length > 0) {
       generateListButton.classList.remove("hidden");
@@ -69,7 +69,6 @@ async function mainEvent() {
   });
 
   /* FILTER BUTTON */
-  // sets current list to be something and injects new list
   filterDataButton.addEventListener("click", (event) => {
     console.log("clicked filterDataButton"); // log out clicks for easier debugging
 
@@ -86,7 +85,6 @@ async function mainEvent() {
   });
 
   /* GENERATE LIST BUTTON */
-  // generates list and injects it without changing original
   generateListButton.addEventListener("click", (event) => {
     console.log("generate new list");
     currentList = cutRestaurantList(storedList);
