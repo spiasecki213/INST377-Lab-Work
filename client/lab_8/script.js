@@ -35,7 +35,6 @@ function cutRestaurantList(list) {
 async function mainEvent() {
   // the async keyword means we can make API requests
   const mainForm = document.querySelector(".main_form"); // This class name needs to be set on your form before you can listen for an event on it
-  const filterDataButton = document.querySelector("#filter"); // querySelector that targets your Filter Data button here
   const loadDataButton = document.querySelector("#data_load"); // querySelector that targets your Load County Data button here
   const generateListButton = document.querySelector("#generate"); // querySelector that targets your Generate List button here
   const textField = document.querySelector("#resto");
@@ -69,22 +68,6 @@ async function mainEvent() {
 
     loadAnimation.style.display = "none";
     // console.table(storedList);
-  });
-
-  /* FILTER BUTTON */
-  filterDataButton.addEventListener("click", (event) => {
-    console.log("clicked filterDataButton"); // log out clicks for easier debugging
-
-    const formData = new FormData(mainForm);
-    const formProps = Object.fromEntries(formData);
-
-    console.log(formProps);
-
-    // Using the filterList function, filter the list
-    const newList = filterList(currentList, formProps.resto);
-    // and log out th new list
-    console.log(newList);
-    injectHTML(newList);
   });
 
   /* GENERATE LIST BUTTON */
