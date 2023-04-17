@@ -64,6 +64,7 @@ async function mainEvent() {
   // the async keyword means we can make API requests
   const mainForm = document.querySelector(".main_form"); // This class name needs to be set on your form before you can listen for an event on it
   const loadDataButton = document.querySelector("#data_load"); // querySelector that targets your Load County Data button here
+  const clearDataButton = document.querySelector("#data_clear"); // querySelector that targets your Clear County Data button here
   const generateListButton = document.querySelector("#generate"); // querySelector that targets your Generate List button here
   const textField = document.querySelector("#resto");
 
@@ -74,8 +75,8 @@ async function mainEvent() {
   const carto = initMap();
 
   const storedData = localStorage.getItem("storedData");
-  const parsedData = JSON.parse(storedData);
-  if (parsedData.length > 0) {
+  let parsedData = JSON.parse(storedData);
+  if (parsedData?.length > 0) {
     generateListButton.classList.remove("hidden");
   }
 
@@ -95,6 +96,11 @@ async function mainEvent() {
     // This changes the response from the GET into data we can use - an "object"
     const storedList = await results.json();
     localStorage.setItem("storedData", JSON.stringify(storedList));
+    parsedData = storedList;
+
+    if (storedList?.length > 0) {
+      generateListButton.classList.remove("hidden");
+    }
 
     loadAnimation.style.display = "none";
     // console.table(storedList);
@@ -115,6 +121,13 @@ async function mainEvent() {
     console.log(newList);
     injectHTML(newList);
     markerPlace(newList, carto);
+  });
+
+  /* CLEAR DATA BUTTON */
+  clearDataButton.addEventListener("click", (event) => {
+    console.log("clear browser data");
+    localStorage.clear();
+    console.log("localStorage Check", localStorage.getItem("storedData"));
   });
 }
 
